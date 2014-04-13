@@ -1,0 +1,320 @@
+@import "variables.scss";
+
+$default-space :15px;
+$default-line: 10px;
+$background-offset: -10px;
+$headerRowHeight: 100px;
+
+@font-face{ 
+    font-family: 'Ebrima'; 
+    src: url('fonts/ebrima.eot'); 
+    src: url('fonts/ebrima.eot?#iefix') format('embedded-opentype'), 
+        url('fonts/ebrima.woff') format('woff'), 
+        url('fonts/ebrima.ttf') format('truetype'), 
+        url('fonts/ebrima.svg#webfont') format('svg'); 
+}
+
+body {
+    color: black;
+}
+
+.header img {
+    position: relative;
+    left: $background-offset;
+    background-color: $body-bg;
+}
+
+.sun {
+    position: relative;
+    height:120px;
+    img {
+        position: absolute;
+        bottom: -15px;
+        left: 300px;
+    }
+}
+
+.top-line {
+    background: url("../images/top-line.png") repeat-y;
+    background-position: $background-offset;
+    position: absolute;
+    width: 232px;
+    height: 100%;
+}
+
+.left-side {
+    background: url("../images/left.png");
+    height: $headerRowHeight;
+    position: absolute;
+    width: 50%;
+}
+
+.right-side {
+    background: url("../images/right.png");
+    height: $headerRowHeight;
+    position: absolute;
+    width: 50%;
+    right: 0px;
+}
+
+.left-line {
+    background: url("../images/vertical-line.png") repeat-y;    
+    background-position: $background-offset + 30px;
+    z-index: 2;
+    height: 100%;
+    position: absolute;
+    width: 40px;
+}
+
+/*  navigation  */
+
+.nav ul li {
+    list-style-image: none;
+}
+
+nav > ul {
+    margin-top: -14px;
+}
+
+.nav > li {
+    display: block;   
+    background-repeat: no-repeat;
+    background-position: right top;
+    padding-top: 13px;
+
+    &.menu-1  {
+        background-image: url("../images/menu1.png");
+    }
+    &.menu-2  {
+        background-image: url("../images/menu2.png");
+    }
+    &.menu-3  {
+        background-image: url("../images/menu3.png");
+    }
+    &.menu-4  {
+        background-image: url("../images/menu4.png");
+    }
+    &.menu-5  {
+        background-image: url("../images/menu6.png");
+    }
+    /*    &.menu-6  {
+            background-image: url("../images/menu6.png");
+        }*/
+
+    +li {
+        margin-top: 1px;
+    }
+    a {
+        padding-left: 40px;
+        padding-top:5px;
+        padding-bottom: 5px;
+        background-color: $yellow;
+        color: $text-color;
+        background-position-y: 5px; 
+        font-weight: bold;
+        height: 27px;
+        /*margin-bottom: 5px;*/
+        /*margin-top: 15px;*/
+        margin-right:40px;
+        z-index: 1;
+    }
+    &.active {
+        a {
+            color: $text-color;    
+        }
+    }
+
+    a:hover {
+        color: #ffffff;                
+    }
+
+    >a:hover {
+        /*backgroud: linear-gradient($yellow-light, $yellow);*/
+        background: -webkit-linear-gradient(left, $yellow-light , $yellow); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(right, $yellow-light, $yellow); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(right, $yellow-light, $yellow); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to right, $yellow-light , $yellow); /* Standard syntax (must be last) */
+        //background-color: $yellow-light;
+    }
+
+    &.current > a, li.current > a {
+        color: #ffffff;
+    }
+
+    ul {
+        z-index: 5;
+        position: relative;
+        list-style: none outside none;
+        padding: 0px;
+        li {
+            padding-top: 14px;
+            background-image: none;
+            a {
+                display: block;
+                background-color: $yellow-light;
+                text-decoration: none;
+                margin-right:30px;
+            }
+        }
+    }
+}
+
+
+.container {
+    position: relative;
+}
+.content {
+    .row {
+        margin-top: $default-space;
+    }
+
+    .bottom-row {
+        position: relative;
+        z-index: 5;
+
+        .col-md-4 {
+            height: 400px;
+        }
+        .box-border {
+            height: 100%;
+            h2 {
+                margin-top: 0px;
+            }
+        }
+    }
+
+    .content-row {
+        position: relative;
+        z-index: 5; 
+    }
+}
+
+.footer {
+    .row {
+        background: url("../images/bottom.png") no-repeat;    
+        margin-top: $default-space;
+        margin-bottom: $default-space;
+        height: 35px;
+        padding-top: 8px;
+        padding-left: 5px;
+        z-index: 5;
+        position: relative;
+    }
+}
+
+.box {
+    background-color: $yellow;
+    padding: $default-space;
+    z-index: 3;
+}
+
+.box-border {
+    border: solid $default-line $yellow;
+    padding: $default-space;
+    background-color: $yellow-light;
+    overflow: hidden;
+}
+
+.box-border.banner {
+    padding: 0px;
+    height: 232px;
+}
+
+.box-fb {
+    padding:0px;
+    background-color: #ffffff;
+}
+
+.bottom {
+
+    height: 100%;
+}
+
+$hpBoxOffset:15px;
+
+.hp-box-wrap {
+    background: url("../images/hp-header.png") repeat-y;
+    h1 {
+        display: block;
+        margin-left: 30px; 
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .box {
+        background: url("../images/hp-box.png") repeat-y;   
+        left: $hpBoxOffset;
+        top: $hpBoxOffset;
+        position: relative;
+    }
+}
+.hp-box-wrap2 {
+    margin-top: - $hpBoxOffset;
+    margin-bottom: $default-space;
+}
+
+h1 {
+    text-transform: uppercase;
+    color: #000000;
+    font-size: 30px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+#carousel-hp {
+    height: 212px;
+    overflow: hidden;
+}
+
+.carousel-indicators {
+    right: 0px;
+    bottom: 0px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 0px;
+    width:auto;
+    left:auto;
+    li {
+        border-radius: 0px;
+        border-color: $yellow-light;
+        background-color: $yellow-light;
+        height: $default-space;
+        width: $default-space;
+        margin:0px;
+    }
+    li.active {
+        border-color: $yellow-dark;
+        background-color: $yellow-dark;
+        height: $default-space;
+        width: $default-space;
+    }
+}
+
+ul {
+    padding-left:$default-space;
+    li {
+        list-style-image: url("../images/li.png");
+    }
+}
+
+.page-header {
+    margin:0px;
+}
+
+.blog {
+    h1, h2, h3 {
+        margin: 0px; 
+    }
+}
+
+.readmore {
+    text-align: right;
+}
+
+.page-header {
+    border: none;
+}
+
+.article-info-term {
+    display: none;
+}
